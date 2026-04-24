@@ -172,15 +172,15 @@
             <div class="yqdc-echarts-grid">
                 <div class="yqdc-echarts-item">
                     <div id="yqdcChartVolume" class="yqdc-echart-box"></div>
-                    <div class="yqdc-echart-xlabel">声量<small>（万条）</small></div>
+                    <div class="yqdc-echart-xlabel">声量<small>(万条)</small></div>
                 </div>
                 <div class="yqdc-echarts-item">
                     <div id="yqdcChartInteract" class="yqdc-echart-box"></div>
-                    <div class="yqdc-echart-xlabel">互动量<small>（万次）</small></div>
+                    <div class="yqdc-echart-xlabel">互动量<small>(万次)</small></div>
                 </div>
                 <div class="yqdc-echarts-item">
                     <div id="yqdcChartAccount" class="yqdc-echart-box"></div>
-                    <div class="yqdc-echart-xlabel">账号<small>（个）</small></div>
+                    <div class="yqdc-echart-xlabel">账号<small>(个)</small></div>
                 </div>
             </div>
 
@@ -2628,49 +2628,6 @@
 
         </div>
 
-        <style>
-        #anchor-trend-compare #trendCompareDataTableWrap .zld-data-table tbody td {
-            font-size: 14px !important;
-        }
-        #anchor-zls-compare #zlsCompareDataTableWrap .zld-data-table tbody td {
-            font-size: 14px !important;
-        }
-        #anchor-zld-compare #zldCompareConclusionWrap .zld-data-table tbody td,
-        #anchor-zld-compare #zldCompareDataTableWrap .zld-data-table tbody td {
-            font-size: 14px !important;
-        }
-        #anchor-interact-intensity #interactIntensityDataTableWrap .zld-data-table tbody td {
-            font-size: 14px !important;
-        }
-        #anchor-hd-compare #hdCompareDataTableWrap .zld-data-table tbody td {
-            font-size: 14px !important;
-        }
-        #anchor-first-publish-speed #firstSpeedDataTableWrap .zld-data-table tbody td {
-            font-size: 14px !important;
-        }
-        @media (max-width: 820px) {
-            .media-cat-trend-filters .btn.btn-sm {
-                font-size: 12px !important;
-            }
-        }
-        @media (max-width: 820px) {
-            #diffstructHelpPop .diffstruct-help-item {
-                display: flex;
-                align-items: flex-start;
-                gap: 8px;
-            }
-            #diffstructHelpPop .diffstruct-help-label {
-                white-space: nowrap;
-                margin-bottom: 0;
-                flex: 0 0 auto;
-            }
-            #diffstructHelpPop .diffstruct-help-item-desc {
-                flex: 1 1 auto;
-                min-width: 0;
-            }
-        }
-        </style>
-
         <!--✅ 媒体类别-->
             <div class="card-1" id="anchor-media-cat-compare">
             <div class="section-title">媒体类别</div>
@@ -2764,10 +2721,17 @@
                             itemStyle: { color: catColors[i], borderRadius: isLast ? [0,3,3,0] : 0 },
                             label: {
                                 show: true, position: 'inside',
-                                formatter: function(p){ return p.value >= 5000 ? (p.value/10000).toFixed(1)+'万' : ''; },
+                                formatter: function(p){ return p.value >= 5000 ? (p.value/10000).toFixed(1) + '{mcWan|万}' : ''; },
                                 color: '#fff',
                                 fontSize: 14,
-                                fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
+                                fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif',
+                                rich: {
+                                    mcWan: {
+                                        fontSize: 11,
+                                        color: '#fff',
+                                        fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
+                                    }
+                                }
                             }
                         };
                     });
@@ -3314,6 +3278,11 @@
                     return v.toLocaleString('zh-CN');
                 }
 
+                function formatNumForBarLabel(v) {
+                    var txt = formatNum(v);
+                    return txt.indexOf('万') > -1 ? txt.replace('万', '<span class="wan-unit">万</span>') : txt;
+                }
+
                 function formatPercent(v) {
                     return v + '%';
                 }
@@ -3347,8 +3316,8 @@
                             + '  <div class="group-label"><div class="group-name">' + d.name + '</div></div>'
                             + '  <div class="group-bars">'
                             + '    <span class="gridline" style="left:25%;"></span><span class="gridline" style="left:50%;"></span><span class="gridline" style="left:75%;"></span>'
-                            + '    <div class="bar-line">' + (d.a > 0 ? '<div class="bar-fill ' + (d.onlyA ? 'only-a' : 'a') + '" style="width:' + aWidth + '%;"></div>' : '') + '<span class="bar-value outside" style="left:calc(' + aWidth + '% + 6px);right:auto;">' + (d.a ? formatNum(d.a) : '—') + '</span></div>'
-                            + '    <div class="bar-line">' + (d.b > 0 ? '<div class="bar-fill ' + (d.onlyB ? 'only-b' : 'b') + '" style="width:' + bWidth + '%;"></div>' : '') + '<span class="bar-value outside" style="left:calc(' + bWidth + '% + 6px);right:auto;">' + (d.b ? formatNum(d.b) : '—') + '</span></div>'
+                            + '    <div class="bar-line">' + (d.a > 0 ? '<div class="bar-fill ' + (d.onlyA ? 'only-a' : 'a') + '" style="width:' + aWidth + '%;"></div>' : '') + '<span class="bar-value outside" style="left:calc(' + aWidth + '% + 6px);right:auto;">' + (d.a ? formatNumForBarLabel(d.a) : '—') + '</span></div>'
+                            + '    <div class="bar-line">' + (d.b > 0 ? '<div class="bar-fill ' + (d.onlyB ? 'only-b' : 'b') + '" style="width:' + bWidth + '%;"></div>' : '') + '<span class="bar-value outside" style="left:calc(' + bWidth + '% + 6px);right:auto;">' + (d.b ? formatNumForBarLabel(d.b) : '—') + '</span></div>'
                             + '  </div>'
                             + '  <div class="group-delta' + (maxDelta > 0 && deltaVal === maxDelta ? ' is-max' : '') + '">Δ ' + (deltaVal > 0 ? formatNum(deltaVal) : '—') + '</div>'
                             + '</div>';
@@ -3361,8 +3330,8 @@
                             + '<div class="mobile-item">'
                             + '  <div class="mobile-top"><strong>' + d.name + '</strong><span style="font-size:12px;color:#8a9099;">' + (d.shared ? '共同平台' : (d.onlyA ? 'A独有' : 'B独有')) + '</span></div>'
                             + '  <div class="mobile-bars">'
-                            + '    <div class="mobile-bar-line"><span>A</span><div class="mobile-track"><div class="mobile-fill" style="width:' + aw + '%; background: #d89a22;"></div></div><strong>' + (d.a ? formatNum(d.a) : '—') + '</strong></div>'
-                            + '    <div class="mobile-bar-line"><span>B</span><div class="mobile-track"><div class="mobile-fill" style="width:' + bw + '%; background: #6977aa;"></div></div><strong>' + (d.b ? formatNum(d.b) : '—') + '</strong></div>'
+                            + '    <div class="mobile-bar-line"><span>A</span><div class="mobile-track"><div class="mobile-fill" style="width:' + aw + '%; background: #d89a22;"></div></div><strong>' + (d.a ? formatNumForBarLabel(d.a) : '—') + '</strong></div>'
+                            + '    <div class="mobile-bar-line"><span>B</span><div class="mobile-track"><div class="mobile-fill" style="width:' + bw + '%; background: #6977aa;"></div></div><strong>' + (d.b ? formatNumForBarLabel(d.b) : '—') + '</strong></div>'
                             + '  </div>'
                             + '</div>';
                     }).join('');
@@ -3978,10 +3947,17 @@
                             itemStyle: { color: chColors[i], borderRadius: isLast ? [0,3,3,0] : 0 },
                             label: {
                                 show: true, position: 'inside',
-                                formatter: function(p){ return p.value >= 5000 ? (p.value/10000).toFixed(1)+'万' : ''; },
+                                formatter: function(p){ return p.value >= 5000 ? (p.value/10000).toFixed(1) + '{chWan|万}' : ''; },
                                 color: '#fff',
                                 fontSize: 14,
-                                fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
+                                fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif',
+                                rich: {
+                                    chWan: {
+                                        fontSize: 11,
+                                        color: '#fff',
+                                        fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
+                                    }
+                                }
                             }
                         };
                     });

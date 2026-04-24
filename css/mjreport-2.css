@@ -4891,8 +4891,8 @@ label
     align-items: center;
     justify-content: center;
     min-width: 0;
-    padding: 2px 8px;
-    border-radius: 6px;
+    padding: 4px 4px;
+    border-radius: 4px;
     font-size: 10px;
     font-weight: 700;
     line-height: 1.1;
@@ -4921,6 +4921,7 @@ label
     justify-content: center;
     text-align: right;
     line-height: 1.05;
+    font-family: "DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif;
 }
 
 .bic-rank-content-single
@@ -4930,17 +4931,35 @@ label
 
 .bic-rank-main
 {
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 800;
     line-height: 1.05;
     color: #273249;
     white-space: nowrap;
 }
 
+/* 排名位次数字按事件色显示 */
+.bic-rank-card-a .bic-rank-main
+{
+    color: #F6AB00;
+}
+
+.bic-rank-card-b .bic-rank-main
+{
+    color: #6E81B3;
+}
+
+/* 排名位次文字“第”“位”固定深色 */
+.bic-rank-main small
+{
+    color: #273249;
+    font-size: 12px !important;
+}
+
 .bic-rank-sub
 {
     margin-top: 2px;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 800;
     line-height: 1.05;
     color: #273249;
@@ -5086,19 +5105,19 @@ label
     .bic-rank-chip
     {
         min-width: 32px;
-        padding: 2px 6px;
+        padding: 4px 4px;
         font-size: 9px;
     }
 
     .bic-rank-main
     {
-        font-size: 9px;
+        font-size: 12px;
     }
 
     .bic-rank-sub
     {
         margin-top: 2px;
-        font-size: 9px;
+        font-size: 13px;
     }
 
     .bic-rank-content
@@ -5235,19 +5254,19 @@ label
     .bic-rank-chip
     {
         min-width: 0;
-        border-radius: 5px;
+        border-radius: 4px;
         font-size: 9px;
     }
 
     .bic-rank-main
     {
-        font-size: 9px;
+        font-size: 15px;
     }
 
     .bic-rank-sub
     {
         margin-top: 2px;
-        font-size: 9px;
+        font-size: 13px;
     }
 
     .bic-rank-content
@@ -7639,6 +7658,8 @@ label
 .diffstruct .bar-fill.only-a { background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.62) 0, rgba(255,255,255,.62) 2px, rgba(255,255,255,.08) 2px, rgba(255,255,255,.08) 4px), linear-gradient(90deg, #F6AB00 0%, #F6AB00 100%); border-right: 1px solid rgba(246,171,0,.38); }
 .diffstruct .bar-fill.only-b { background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.62) 0, rgba(255,255,255,.62) 2px, rgba(255,255,255,.08) 2px, rgba(255,255,255,.08) 4px), linear-gradient(90deg, #6E81B3 0%, #6E81B3 100%); border-right: 1px solid rgba(110,129,179,.38); }
 .diffstruct .bar-value { position: absolute; top: 50%; transform: translateY(-50%); right: 8px; font-size: 14px; color: #646b75; font-weight: 400; white-space: nowrap; z-index: 2; font-family: "DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif; }
+.diffstruct .bar-value .wan-unit,
+.diffstruct .mobile-bar-line strong .wan-unit { font-size: 11px; }
 /* 扩散结构：所有标签都在条形内显示 */
 .diffstruct .bar-value.outside { right: 8px; }
 .diffstruct .ratio-card { display: none; }
@@ -8102,4 +8123,49 @@ label
 #mediaCatRatioChart
 {
     height: 260px;
+}
+
+/* 页面内联样式迁移：各模块数据表数值字号统一 */
+#anchor-trend-compare #trendCompareDataTableWrap .zld-data-table tbody td,
+#anchor-zls-compare #zlsCompareDataTableWrap .zld-data-table tbody td,
+#anchor-zld-compare #zldCompareConclusionWrap .zld-data-table tbody td,
+#anchor-zld-compare #zldCompareDataTableWrap .zld-data-table tbody td,
+#anchor-interact-intensity #interactIntensityDataTableWrap .zld-data-table tbody td,
+#anchor-hd-compare #hdCompareDataTableWrap .zld-data-table tbody td,
+#anchor-first-publish-speed #firstSpeedDataTableWrap .zld-data-table tbody td
+{
+    font-size: 14px !important;
+}
+
+/* 页面内联样式迁移：媒体类别筛选按钮移动端字号 */
+@media (max-width: 820px)
+{
+    .media-cat-trend-filters .btn.btn-sm
+    {
+        font-size: 12px !important;
+    }
+}
+
+/* 页面内联样式迁移：扩散平台排序说明弹框移动端单行排版 */
+@media (max-width: 820px)
+{
+    #diffstructHelpPop .diffstruct-help-item
+    {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    #diffstructHelpPop .diffstruct-help-label
+    {
+        white-space: nowrap;
+        margin-bottom: 0;
+        flex: 0 0 auto;
+    }
+
+    #diffstructHelpPop .diffstruct-help-item-desc
+    {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
 }
