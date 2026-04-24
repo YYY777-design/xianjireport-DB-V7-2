@@ -232,8 +232,9 @@
                                 show: true,
                                 position: 'top',
                                 color: '#666',
-                                fontSize: 12,
+                                fontSize: 14,
                                 fontWeight: 700,
+                                fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif',
                                 formatter: function (p) { return formatter(Number(p.value)); }
                             }
                         }]
@@ -522,7 +523,12 @@
                                     data: [{ type: 'max', name: '最高值' }],
                                     symbol: 'pin',
                                     symbolSize: [65, 45],
-                                    label: { color: '#fff', fontSize: 12, formatter: '{c}' },
+                                    label: { 
+                                        color: '#fff', 
+                                        fontSize: 14,
+                                        fontWeight: 700,
+                                        fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif',
+                                        formatter: '{c}' },
                                     itemStyle: { color: 'rgba(245,166,35,0.9)' }
                                 }
                             },
@@ -545,7 +551,12 @@
                                     data: [{ type: 'max', name: '最高值' }],
                                     symbol: 'pin',
                                     symbolSize: [65, 45],
-                                    label: { color: '#fff', fontSize: 12, formatter: '{c}' },
+                                    label: { 
+                                        color: '#fff', 
+                                        fontSize: 14,
+                                        fontWeight: 700,
+                                        fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif',
+                                    },
                                     itemStyle: { color: 'rgba(110,129,179,0.9)' }
                                 }
                             }
@@ -747,7 +758,7 @@
                                     data: [{ type: 'max', name: '最高值' }],
                                     symbol: 'pin',
                                     symbolSize: [65, 45],
-                                    label: { color: '#fff', fontSize: 12, formatter: '{c}' },
+                                    label: { color: '#fff', fontSize: 14, fontWeight: 700, fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif', formatter: '{c}' },
                                     itemStyle: { color: 'rgba(245,166,35,0.9)' }
                                 }
                             },
@@ -770,7 +781,7 @@
                                     data: [{ type: 'max', name: '最高值' }],
                                     symbol: 'pin',
                                     symbolSize: [65, 45],
-                                    label: { color: '#fff', fontSize: 12, formatter: '{c}' },
+                                    label: { color: '#fff', fontSize: 14, fontWeight: 700, fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif', formatter: '{c}' },
                                     itemStyle: { color: 'rgba(110,129,179,0.9)' }
                                 }
                             }
@@ -1062,7 +1073,7 @@
                                     data: [{ type: 'max', name: '最高值' }],
                                     symbol: 'pin',
                                     symbolSize: [65, 45],
-                                    label: { color: '#fff', fontSize: 12, formatter: '{c}' },
+                                    label: { color: '#fff', fontSize: 14, fontWeight: 700, fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif', formatter: '{c}' },
                                     itemStyle: { color: 'rgba(245,166,35,0.9)' }
                                 }
                             },
@@ -1085,7 +1096,7 @@
                                     data: [{ type: 'max', name: '最高值' }],
                                     symbol: 'pin',
                                     symbolSize: [65, 45],
-                                    label: { color: '#fff', fontSize: 12, formatter: '{c}' },
+                                    label: { color: '#fff', fontSize: 14, fontWeight: 700, fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif', formatter: '{c}' },
                                     itemStyle: { color: 'rgba(110,129,179,0.9)' }
                                 }
                             }
@@ -1640,7 +1651,7 @@
                                     data: [{ type: 'max', name: '最高值' }],
                                     symbol: 'pin',
                                     symbolSize: [65, 45],
-                                    label: { color: '#fff', fontSize: 12, formatter: '{c}' },
+                                    label: { color: '#fff', fontSize: 14, fontWeight: 700, fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif', formatter: '{c}' },
                                     itemStyle: { color: 'rgba(245,166,35,0.9)' }
                                 }
                             },
@@ -1663,7 +1674,7 @@
                                     data: [{ type: 'max', name: '最高值' }],
                                     symbol: 'pin',
                                     symbolSize: [65, 45],
-                                    label: { color: '#fff', fontSize: 12, formatter: '{c}' },
+                                    label: { color: '#fff', fontSize: 14, fontWeight: 700, fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif', formatter: '{c}' },
                                     itemStyle: { color: 'rgba(110,129,179,0.9)' }
                                 }
                             }
@@ -1862,13 +1873,29 @@
                                     type: 'bar',
                                     data: mediaData.A,
                                     barGap: '18%',
-                                    itemStyle: { color: mediaGradA, borderRadius: [3, 3, 0, 0] }
+                                    itemStyle: { color: mediaGradA, borderRadius: [3, 3, 0, 0] },
+                                    label: {
+                                        show: true,
+                                        position: 'top',
+                                        formatter: function (params) { return params.value.toLocaleString(); },
+                                        color: '#F6AB00',
+                                        fontSize: 14,
+                                        fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
+                                    }
                                 },
                                 {
                                     name: '事件 B',
                                     type: 'bar',
                                     data: mediaData.B,
-                                    itemStyle: { color: mediaGradB, borderRadius: [3, 3, 0, 0] }
+                                    itemStyle: { color: mediaGradB, borderRadius: [3, 3, 0, 0] },
+                                    label: {
+                                        show: true,
+                                        position: 'top',
+                                        formatter: function (params) { return params.value.toLocaleString(); },
+                                        color: '#6E81B3',
+                                        fontSize: 14,
+                                        fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
+                                    }
                                 }
                             ]
                         };
@@ -1934,7 +1961,8 @@
                                         position: 'inside',
                                         formatter: function (params) { return params.value >= 8 ? params.value + '%' : ''; },
                                         color: '#fff',
-                                        fontSize: 11
+                                        fontSize: 14,
+                                        fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
                                     }
                                 },
                                 {
@@ -1949,7 +1977,8 @@
                                         position: 'inside',
                                         formatter: function (params) { return params.value >= 8 ? params.value + '%' : ''; },
                                         color: '#fff',
-                                        fontSize: 11
+                                        fontSize: 14,
+                                        fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
                                     }
                                 }
                             ]
@@ -2152,7 +2181,10 @@
                                 itemStyle: { color: MTYPE2_COLORS_A, borderRadius: [4, 4, 0, 0] },
                                 label: {
                                     show: true, position: 'top',
-                                    fontSize: 11, color: '#F6AB00',
+                                    fontSize: 14, 
+                                    fontWeight: 700, 
+                                    fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif',
+                                    color: '#F6AB00',
                                     formatter: function (p) { return p.value + '%'; }
                                 }
                             },
@@ -2164,7 +2196,10 @@
                                 itemStyle: { color: MTYPE2_COLORS_B, borderRadius: [4, 4, 0, 0] },
                                 label: {
                                     show: true, position: 'top',
-                                    fontSize: 11, color: '#6E81B3',
+                                    fontSize: 14, 
+                                    fontWeight: 700, 
+                                    fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif',
+                                    color: '#6E81B3',
                                     formatter: function (p) { return p.value + '%'; }
                                 }
                             }
@@ -2499,7 +2534,9 @@
                                 show: true,
                                 position: 'right',
                                 color: '#666',
-                                fontSize: 11,
+                                fontSize: 12, 
+                                fontWeight: 'normal', 
+                                fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif',
                                 formatter: function (p) {
                                     var nm = names[p.dataIndex];
                                     if (sameHighlightOn && sharedNameMap && sharedNameMap[nm]) {
@@ -2511,7 +2548,8 @@
                                     aacSameNum: {
                                         fontWeight: 900,//共同账号名称加粗
                                         color: '#000',
-                                        fontSize: 11
+                                        fontSize: 14,  
+                                       fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif',
                                     }
                                 }
                             }
@@ -2591,9 +2629,44 @@
         </div>
 
         <style>
+        #anchor-trend-compare #trendCompareDataTableWrap .zld-data-table tbody td {
+            font-size: 14px !important;
+        }
+        #anchor-zls-compare #zlsCompareDataTableWrap .zld-data-table tbody td {
+            font-size: 14px !important;
+        }
+        #anchor-zld-compare #zldCompareConclusionWrap .zld-data-table tbody td,
+        #anchor-zld-compare #zldCompareDataTableWrap .zld-data-table tbody td {
+            font-size: 14px !important;
+        }
+        #anchor-interact-intensity #interactIntensityDataTableWrap .zld-data-table tbody td {
+            font-size: 14px !important;
+        }
+        #anchor-hd-compare #hdCompareDataTableWrap .zld-data-table tbody td {
+            font-size: 14px !important;
+        }
+        #anchor-first-publish-speed #firstSpeedDataTableWrap .zld-data-table tbody td {
+            font-size: 14px !important;
+        }
         @media (max-width: 820px) {
             .media-cat-trend-filters .btn.btn-sm {
                 font-size: 12px !important;
+            }
+        }
+        @media (max-width: 820px) {
+            #diffstructHelpPop .diffstruct-help-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            #diffstructHelpPop .diffstruct-help-label {
+                white-space: nowrap;
+                margin-bottom: 0;
+                flex: 0 0 auto;
+            }
+            #diffstructHelpPop .diffstruct-help-item-desc {
+                flex: 1 1 auto;
+                min-width: 0;
             }
         }
         </style>
@@ -2692,7 +2765,9 @@
                             label: {
                                 show: true, position: 'inside',
                                 formatter: function(p){ return p.value >= 5000 ? (p.value/10000).toFixed(1)+'万' : ''; },
-                                color: '#fff', fontSize: 11
+                                color: '#fff',
+                                fontSize: 14,
+                                fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
                             }
                         };
                     });
@@ -2712,7 +2787,9 @@
                             label: {
                                 show: true, position: 'inside',
                                 formatter: function(p){ return p.value >= 8 ? p.value + '%' : ''; },
-                                color: '#fff', fontSize: 11
+                                color: '#fff',
+                                fontSize: 14,
+                                fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
                             }
                         };
                     });
@@ -3140,6 +3217,7 @@
                                 <div></div>
                                 <div class="group-axis-top" data-role="group-axis-top"></div>
                             </div>
+                            <div class="diffstruct-corner-desc">Δ 为两事件发文量差值</div>
                         </div>
 
                         <div class="card mobile-list" data-role="mobile-list"></div>
@@ -3150,6 +3228,7 @@
                                 <div></div>
                                 <div class="group-axis-top" data-role="ratio-axis-top"></div>
                             </div>
+                            <div class="diffstruct-corner-desc">Δ 为两事件发文占比差值</div>
                         </div>
                     </div>
                 </div>
@@ -3216,7 +3295,12 @@
                         list = list.filter(function (d) { return d.shared; });
                     }
                     list.sort(function (x, y) {
-                        if (currentSort === 'delta') return y.delta - x.delta;
+                        if (currentSort === 'delta') {
+                            if (currentMode === 'ratio') {
+                                return Math.abs((y.ratioA || 0) - (y.ratioB || 0)) - Math.abs((x.ratioA || 0) - (x.ratioB || 0));
+                            }
+                            return y.delta - x.delta;
+                        }
                         if (currentSort === 'sum') return y.sum - x.sum;
                         if (currentSort === 'a') return y.a - x.a;
                         if (currentSort === 'b') return y.b - x.b;
@@ -3243,6 +3327,9 @@
 
                     var data = filteredData();
                     var maxVal = Math.max.apply(null, data.map(function (d) { return Math.max(d.a, d.b); }).concat([1]));
+                    var maxDelta = data.reduce(function (max, d) {
+                        return Math.max(max, Math.abs((d.a || 0) - (d.b || 0)));
+                    }, 0);
                     var scaleMarks = [0, 0.25, 0.5, 0.75, 1];
 
                     axisTop.innerHTML = scaleMarks.map(function (mark) {
@@ -3254,14 +3341,16 @@
                         var maxBarPct = 85;
                         var aWidth = d.a > 0 ? (d.a / maxVal * maxBarPct).toFixed(1) : 0;
                         var bWidth = d.b > 0 ? (d.b / maxVal * maxBarPct).toFixed(1) : 0;
+                        var deltaVal = Math.abs((d.a || 0) - (d.b || 0));
                         return ''
-                            + '<div class="group-row">'
+                            + '<div class="group-row has-delta">'
                             + '  <div class="group-label"><div class="group-name">' + d.name + '</div></div>'
                             + '  <div class="group-bars">'
                             + '    <span class="gridline" style="left:25%;"></span><span class="gridline" style="left:50%;"></span><span class="gridline" style="left:75%;"></span>'
                             + '    <div class="bar-line">' + (d.a > 0 ? '<div class="bar-fill ' + (d.onlyA ? 'only-a' : 'a') + '" style="width:' + aWidth + '%;"></div>' : '') + '<span class="bar-value outside" style="left:calc(' + aWidth + '% + 6px);right:auto;">' + (d.a ? formatNum(d.a) : '—') + '</span></div>'
                             + '    <div class="bar-line">' + (d.b > 0 ? '<div class="bar-fill ' + (d.onlyB ? 'only-b' : 'b') + '" style="width:' + bWidth + '%;"></div>' : '') + '<span class="bar-value outside" style="left:calc(' + bWidth + '% + 6px);right:auto;">' + (d.b ? formatNum(d.b) : '—') + '</span></div>'
                             + '  </div>'
+                            + '  <div class="group-delta' + (maxDelta > 0 && deltaVal === maxDelta ? ' is-max' : '') + '">Δ ' + (deltaVal > 0 ? formatNum(deltaVal) : '—') + '</div>'
                             + '</div>';
                     }).join('');
 
@@ -3286,6 +3375,9 @@
                     if (!rows || !axisTop) return;
 
                     var data = filteredData();
+                    var maxDelta = data.reduce(function (max, d) {
+                        return Math.max(max, Math.abs((d.ratioA || 0) - (d.ratioB || 0)));
+                    }, 0);
                     var scaleMarks = [0, 0.25, 0.5, 0.75, 1];
 
                     axisTop.innerHTML = scaleMarks.map(function (mark) {
@@ -3296,14 +3388,16 @@
                     rows.innerHTML = data.map(function (d) {
                         var aWidth = d.ratioA > 0 ? d.ratioA.toFixed(1) : 0;
                         var bWidth = d.ratioB > 0 ? d.ratioB.toFixed(1) : 0;
+                        var deltaVal = Math.abs((d.ratioA || 0) - (d.ratioB || 0));
                         return ''
-                            + '<div class="group-row">'
+                            + '<div class="group-row has-delta">'
                             + '  <div class="group-label"><div class="group-name">' + d.name + '</div></div>'
                             + '  <div class="group-bars">'
                             + '    <span class="gridline" style="left:25%;"></span><span class="gridline" style="left:50%;"></span><span class="gridline" style="left:75%;"></span>'
                             + '    <div class="bar-line">' + (d.ratioA > 0 ? '<div class="bar-fill ' + (d.onlyA ? 'only-a' : 'a') + '" style="width:' + aWidth + '%;"></div>' : '') + '<span class="bar-value outside" style="left:calc(' + aWidth + '% + 6px);right:auto;">' + (d.ratioA > 0 ? formatPercent(d.ratioA) : '—') + '</span></div>'
                             + '    <div class="bar-line">' + (d.ratioB > 0 ? '<div class="bar-fill ' + (d.onlyB ? 'only-b' : 'b') + '" style="width:' + bWidth + '%;"></div>' : '') + '<span class="bar-value outside" style="left:calc(' + bWidth + '% + 6px);right:auto;">' + (d.ratioB > 0 ? formatPercent(d.ratioB) : '—') + '</span></div>'
                             + '  </div>'
+                            + '  <div class="group-delta' + (maxDelta > 0 && deltaVal === maxDelta ? ' is-max' : '') + '">Δ ' + (deltaVal > 0 ? deltaVal.toFixed(1) + '%' : '—') + '</div>'
                             + '</div>';
                     }).join('');
 
@@ -3571,7 +3665,7 @@
                                                     textVerticalAlign: 'bottom',
                                                     text: leader,
                                                     fill: '#8B95A5',
-                                                    font: '600 10px sans-serif',
+                                                    font: '700 12px "DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif',
                                                     backgroundColor: 'rgba(255,255,255,.92)',
                                                     padding: [2, 4]
                                                 }
@@ -3881,11 +3975,13 @@
                             stack: 'total',
                             data: [chDataA[i], chDataB[i]],
                             barMaxWidth: 28,
-                            itemStyle: { color: chColors[i], borderRadius: isLast ? [3,3,0,0] : 0 },
+                            itemStyle: { color: chColors[i], borderRadius: isLast ? [0,3,3,0] : 0 },
                             label: {
                                 show: true, position: 'inside',
                                 formatter: function(p){ return p.value >= 5000 ? (p.value/10000).toFixed(1)+'万' : ''; },
-                                color: '#fff', fontSize: 11
+                                color: '#fff',
+                                fontSize: 14,
+                                fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
                             }
                         };
                     });
@@ -3901,11 +3997,13 @@
                             stack: 'total',
                             data: [chPctA[i], chPctB[i]],
                             barMaxWidth: 28,
-                            itemStyle: { color: chColors[i], borderRadius: isLast ? [3,3,0,0] : 0 },
+                            itemStyle: { color: chColors[i], borderRadius: isLast ? [0,3,3,0] : 0 },
                             label: {
                                 show: true, position: 'inside',
                                 formatter: function(p){ return p.value >= 6 ? p.value + '%' : ''; },
-                                color: '#fff', fontSize: 11
+                                color: '#fff',
+                                fontSize: 14,
+                                fontFamily: '"DIN Alternate", "DIN Condensed", "Roboto Condensed", Arial, sans-serif'
                             }
                         };
                     });
